@@ -1,70 +1,249 @@
-# Getting Started with Create React App
+# Admin Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive admin dashboard for managing an e-commerce platform built with React and Tailwind CSS.
+
+## Features
+
+### Authentication
+
+- Secure login for admin users
+- Token-based authentication
+- Session management with cookies
+
+### Dashboard Overview
+
+- Key metrics cards (Products, Users, Orders, etc.)
+- Interactive charts and graphs
+- Recent activity feed
+- Real-time data visualization
+
+### Product Management
+
+- **CRUD Operations**: Create, Read, Update, Delete products
+- Image upload support
+- Category and tag management
+- Inventory tracking
+- Discount management
+
+### Order Management
+
+- View all orders with filtering and search
+- Update order status (Pending, Processing, Shipped, Delivered, Cancelled)
+- Delete orders
+- Detailed order information
+
+### User Management
+
+- View all registered users
+- Search and filter users
+- Delete users
+- User detail modal with comprehensive information
+
+### Coupon Management
+
+- **CRUD Operations**: Create, Read, Update, Delete coupons
+- Percentage and fixed amount discounts
+- Expiration dates
+- Minimum cart value requirements
+
+### Message Management
+
+- View messages from users
+- Delete messages
+- User details modal for sender information
+- Search functionality
+
+### Subscriber Management
+
+- View all email subscribers
+- Delete subscribers
+- User details for each subscriber
+
+### Analytics & Reporting
+
+- Sales trend visualization
+- Revenue by category
+- Top selling products
+- User growth charts
+- Order status distribution
+- Coupon usage analytics
+
+## Technologies Used
+
+### Frontend
+
+- **React** - JavaScript library for building user interfaces
+- **Tailwind CSS** - Utility-first CSS framework
+- **Recharts** - Declarative charting library
+- **SweetAlert2** - Beautiful alert modals
+- **JS Cookie** - Simple cookie management
+
+### Backend Integration
+
+- RESTful API consumption
+- JWT authentication
+- Role-based access control (Admin only)
+
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Node.js (version 14 or higher)
+- npm or yarn
+- Backend API server running
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd admin-dashboard
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Create a `.env` file in the root directory:
+
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+REACT_APP_BASE_URL=http://localhost:5000
+```
+
+4. Start the development server:
+
+```bash
+npm start
+```
+
+The dashboard will be available at `http://localhost:3000`
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` - Runs the app in development mode
+- `npm build` - Builds the app for production
+- `npm test` - Runs the test suite
+- `npm eject` - Ejects the Create React App configuration
 
-### `npm start`
+## API Endpoints
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Authentication
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- `POST /api/auth/login` - User login
 
-### `npm test`
+### Products
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `GET /api/products` - Get all products
+- `POST /api/products` - Create product
+- `PUT /api/products/:id` - Update product
+- `DELETE /api/products/:id` - Delete product
 
-### `npm run build`
+### Orders
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `GET /api/orders/all` - Get all orders
+- `PUT /api/orders/status/:id` - Update order status
+- `DELETE /api/orders/:id` - Delete order
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Users
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `GET /api/users` - Get all users
+- `DELETE /api/users/:id` - Delete user
+- `GET /api/user/:id` - Get user by ID
 
-### `npm run eject`
+### Coupons
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `GET /api/coupons` - Get all coupons
+- `POST /api/coupons` - Create coupon
+- `PUT /api/coupons/:id` - Update coupon
+- `DELETE /api/coupons/:id` - Delete coupon
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Messages
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `GET /api/messages` - Get all messages
+- `DELETE /api/messages/:id` - Delete message
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Subscribers
 
-## Learn More
+- `GET /api/subscribers` - Get all subscribers
+- `DELETE /api/subscribers/:id` - Delete subscriber
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Folder Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+src/
+├── components/
+│   ├── Layout.js
+│   ├── Navbar.js
+│   └── Sidebar.js
+├── pages/
+│   ├── Dashboard.js
+│   ├── Login.js
+│   ├── Products.js
+│   ├── Orders.js
+│   ├── Users.js
+│   ├── Coupons.js
+│   ├── Messages.js
+│   ├── Subscribers.js
+│   └── Analytics.js
+├── App.js
+└── index.js
+```
 
-### Code Splitting
+## Security Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- JWT token authentication
+- Role-based access control (Admin only)
+- Protected routes
+- Secure cookie storage
+- Input validation
+- Error handling
 
-### Analyzing the Bundle Size
+## Responsive Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The dashboard is fully responsive and works on:
 
-### Making a Progressive Web App
+- Desktop computers
+- Tablets
+- Mobile devices
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Customization
 
-### Advanced Configuration
+### Branding
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Update colors in `tailwind.config.js`
+- Modify logo in `src/components/Navbar.js`
+- Adjust gradients in CSS classes
 
-### Deployment
+### Adding New Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Create a new component in `src/pages/`
+2. Add the route in `src/App.js`
+3. Update the sidebar navigation in `src/components/Sidebar.js`
 
-### `npm run build` fails to minify
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/AmazingFeature`)
+3. Make your changes
+4. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+5. Push to the branch (`git push origin feature/AmazingFeature`)
+6. Open a pull request
+
+## Acknowledgements
+
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Recharts](https://recharts.org/)
+- [SweetAlert2](https://sweetalert2.github.io/)
+- [JS Cookie](https://github.com/js-cookie/js-cookie)
+
+---
+
+## 🧑‍💻 Developed By
+
+[Gerges Samuel @josamcode]  
+Frontend & Backend Developer
